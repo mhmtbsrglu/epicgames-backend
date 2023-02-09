@@ -35,4 +35,7 @@ public class Game extends BaseEntity {
 
     @OneToMany(mappedBy = "games",targetEntity = GameImageSource.class,fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<GameImageSource> gameImageSources;
+
+    @OneToOne(fetch = FetchType.LAZY,targetEntity = UrlShortener.class,mappedBy = "game")
+    private UrlShortener urlShortener;
 }
